@@ -1,0 +1,7 @@
+date,product,revenue,customer_id
+2026-03-01,Product A,120,1
+2026-03-01,Product B,80,2
+2026-03-02,Product A,200,3
+2026-03-02,Product B,90,4
+2026-03-03,Product A,50,5
+2026-03-03,Product B,300,6

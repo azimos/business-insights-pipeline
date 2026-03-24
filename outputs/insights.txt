@@ -1,0 +1,22 @@
+Here’s an explanation of the unusual revenue pattern in the data you provided:
+
+### What is happening
+- On **2026-03-01**, the revenue is reported as **200**.
+- The **rolling average** revenue for the period is also **200.0**, indicating this might be the first data point in the series or that it matches the prior average exactly.
+- The **percentage change** (`pct_change`) is **0.0**, meaning no change compared to the previous period.
+- The **anomaly** is marked as **-1**, which typically denotes no anomaly detected (often `1` means anomaly, `-1` means normal).
+
+### Possible causes
+1. **First Data Entry:** This could be the very first date in the time series, so no prior data exists to compare against, resulting in zero percent change and the rolling average equal to the current revenue.
+2. **Stable Sales:** The revenue for this date exactly matches the rolling average, indicating steady business with no fluctuation.
+3. **Data Initialization:** This might be an initial placeholder or baseline figure from which later trends will be compared.
+4. **No anomaly detected:** The anomaly flag of -1 suggests the algorithm found no unusual pattern on this date.
+
+### Suggested Actions
+1. **Confirm Data Context:** Verify whether this is the first entry in the dataset or if previous data is missing.
+2. **Monitor Following Days:** Analyze the data for the following days to see if revenue grows, declines, or stays constant and to detect real anomalies.
+3. **Validate Data Quality:** Ensure revenue figures are accurate and the anomaly detection algorithm is correctly configured.
+4. **Use More Data Points:** Consider expanding the rolling average window or including more dates to capture trends better over time.
+5. **Investigate Business Factors:** If revenue suddenly stabilizes, check for external factors like promotions, product launches, or market conditions that support this steadiness.
+
+In summary, this single data point shows a stable revenue equal to the rolling average and no detected anomaly, likely reflecting initial or typical business sales on that day. The lack of change and anomaly means no immediate action is required, but continue monitoring subsequent data.
