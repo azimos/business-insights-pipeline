@@ -7,11 +7,11 @@ from src.visualization import plot_revenue
 def run_pipeline():
     df = load_sales_data()
 
-    df_metrics = build_daily_metrics(df)
+    daily_df, product_df = build_daily_metrics(df)
 
-    df_analyzed = detect_anomalies(df_metrics)
+    daily_df = detect_anomalies(daily_df)
 
-    insights = generate_insights(df_analyzed)
+    insights = generate_insights(daily_df)
 
     print(insights)
 

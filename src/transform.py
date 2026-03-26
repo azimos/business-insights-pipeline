@@ -1,14 +1,21 @@
-def build_daily_metrics(df):
-    daily = df.groupby("date").agg({
-        "revenue": "sum"
-    }).reset_index()
+def build_metrics(df):
+    # ---- DAILY METRICS ----
+    daily = (
+        df.groupby("date")
+        .agg(revenue=("revenue", "sum"))
+        .reset_index()
+        .sort_values("date")
+    )
 
-    daily = daily.sort_values("date")
-
-    # Add rolling average
-    daily["rolling_avg"] = daily["revenue"].rolling(window=3, min_periods=1).mean()
-
-    # % change
+    daily["rolling_avg"] = daily["revenue"].rolling(window=7, min_periods=1).mean()
     daily["pct_change"] = daily["revenue"].pct_change().fillna(0)
 
-    return daily
+    # ---- PRODUCT METRICS ----
+    product = (
+        df.groupby(["date", "product"])
+        .agg(revenue=("revenue", "sum"))
+        .reset_index()
+        .sort_values("date")
+    )
+
+    return daily, product
